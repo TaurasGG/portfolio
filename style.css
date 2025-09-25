@@ -3,8 +3,13 @@ General
  */
 
 @font-face {
-    font-family: Helmet-Regular;
-    src: url("./assets/fonts/Helmet-Regular.ttf") format("truetype");
+    font-family: Neuropol;
+    src: url("./assets/fonts/Neuropol.otf") format("opentype");
+}
+
+@font-face {
+    font-family: Michroma;
+    src: url("./assets/fonts/Michroma.ttf") format("truetype");
 }
 
 /* WebKit and Blink */
@@ -15,13 +20,12 @@ input::-webkit-inner-spin-button {
 }*/
 
 :root {
-    --header: rgba(255, 255, 255, 0.25);
     --text: rgba(255, 255, 255, 0.75);
-    --text-dark: #BF8C5F;
-    --box: rgba(255, 255, 255, 0.75);
-    --button: rgba(255, 255, 255, 0.25);
+    --text-dark: rgba(0, 100, 100, 0.75);
+    --box: rgba(255, 255, 255, 0);
+    --button: rgba(255, 255, 255, 0.5);
     --shadow: rgba(0, 100, 100, 0.5);
-    --shadow-dark: rgba(255, 255, 255, 1);
+    --shadow-dark: rgba(255, 255, 255, 0.5);
     --important: #0e83b5;
     --danger: hwb(0 25% 0%);
     --success: lawngreen;
@@ -41,7 +45,8 @@ html {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Helmet-Regular', serif;
+    font-family: 'Michroma', serif;
+    font-weight: normal;
     line-height: 1;
     color: var(--text);
     text-shadow: 0 0 0.75rem var(--shadow);
@@ -52,16 +57,12 @@ Page
  */
 
 body {
-    /*height: 100vh;
-    background: black;
-    display: flex;
-    justify-content: center;
-    align-items: start;
-    overflow-x: hidden;*/
+    overflow-x: hidden;
     background-image: url("./assets/background.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
+    padding: 0.3rem;
 }
 
 .grid {
@@ -69,20 +70,26 @@ body {
     grid-template-columns: repeat(6, 1fr);
     width: 100%;
     transition: filter 0.3s ease;
-    overflow: hidden;
+    gap: 0.3rem;
+}
+
+.small {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+    transition: filter 0.3s ease;
+    gap: 0.3rem;
 }
 
 .card {
     aspect-ratio: 1 / 1;
     padding: 10%;
-    margin: 0.15rem;
     border-radius: 10%;
     border: 0.1rem solid rgba(255, 255, 255, 0.1);
     display: flex;
     flex-direction: column;
     align-items: stretch;
     justify-content: end;
-    font-weight: 600;
     transition: transform 2s ease, scale 0.5s ease;
     position: relative;
     transform-style: preserve-3d;
@@ -90,9 +97,10 @@ body {
 }
 
 span.fit {
-    line-height: 0.75;
+    line-height: 0.95;
+    font-weight: bold;
+    text-align: center;
 }
-
 
 .card:hover {
     scale: 1.1;
@@ -107,7 +115,6 @@ span.fit {
 .flip-y {
     transform: rotateY(180deg);
 }
-
 
 .big {
     grid-column: span 2;
@@ -210,7 +217,7 @@ a:hover {
 }
 
 .bold {
-    font-family: 'ObjectSans-Bold', sans-serif !important;
+    font-weight: bold;
 }
 
 .underline {

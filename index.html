@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Tauras Giedraitis</title>
     <link rel="stylesheet" href="./style.css">
     <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
@@ -18,24 +18,42 @@
         <span class="fit">Software Engineering Student at KTU</span>
     </div>
     <div class="card flip"></div>
-    <div class="card flip"></div>
+    <div class="small">
+        <div class="card flip"></div>
+        <div class="card flip"></div>
+        <div class="card flip"></div>
+        <div class="card flip"></div>
+    </div>
     <div class="card flip"></div>
     <div class="card flip"></div>
     <div class="card flip"></div>
     <div class="card flip"></div>
     <div class="card big"></div>
     <div class="card flip"></div>
-    <div class="card flip"></div>
+    <div class="small">
+        <div class="card flip"></div>
+        <div class="card flip"></div>
+        <div class="card flip"></div>
+        <div class="card flip"></div>
+    </div>
     <div class="card big"></div>
     <div class="card flip"></div>
     <div class="card flip"></div>
     <div class="card flip"></div>
-    <div class="card flip"></div>
+    <div class="small">
+        <div class="card flip"></div>
+        <div class="card flip"></div>
+        <div class="card flip"></div>
+        <div class="card flip"></div>
+    </div>
+</div>
+<div id="curtain">
+
 </div>
 
 <script>
     function fitTextToSpan() {
-        const spans = document.querySelectorAll('span.fit');
+        const spans = document.querySelectorAll('.fit');
 
         spans.forEach(span => {
             const spanWidth = span.parentElement.clientWidth * 0.8 + 1;
@@ -61,7 +79,7 @@
 </script>
 
 <script>
-    const cards = document.querySelectorAll('.card.flip');
+    const cards = document.querySelectorAll('.flip');
 
     function randomFlip() {
         const available = Array.from(cards).filter(
