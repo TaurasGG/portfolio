@@ -24,7 +24,7 @@ input::-webkit-inner-spin-button {
     --text-dark: rgba(0, 100, 100, 0.75);
     --box: rgba(255, 255, 255, 0);
     --button: rgba(255, 255, 255, 0.5);
-    --shadow: rgba(0, 100, 100, 0.5);
+    --shadow: rgba(0, 100, 100, 0.75);
     --shadow-dark: rgba(255, 255, 255, 0.5);
     --important: #0e83b5;
     --danger: hwb(0 25% 0%);
@@ -73,7 +73,7 @@ body {
     gap: 0.3rem;
 }
 
-.small {
+.grid-small {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     width: 100%;
@@ -81,10 +81,14 @@ body {
     gap: 0.3rem;
 }
 
+.grid-small .card {
+    border-radius: calc((400% + 0.9rem) * 0.1);
+}
+
 .card {
     aspect-ratio: 1 / 1;
     padding: 10%;
-    border-radius: 10%;
+    border-radius: calc((200% + 0.3rem) * 0.1);
     border: 0.1rem solid rgba(255, 255, 255, 0.1);
     display: flex;
     flex-direction: column;
@@ -92,23 +96,59 @@ body {
     justify-content: end;
     transition: transform 2s ease, scale 0.5s ease;
     position: relative;
-    transform-style: preserve-3d;
     box-shadow: inset 0 0 0.5rem 0 rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(0.25rem) !important;
 }
 
-span.fit {
+.button {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.button:active {
+    scale: 0.95 !important;
+}
+
+.icon {
+    position: absolute;
+    max-height: 40%;
+    max-width: 40%;
+    opacity: 0.75;
+    filter: drop-shadow(0 0 0.75rem var(--shadow));
+}
+
+.icon-wrapper {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flip-wrapper {
+    perspective: 1000px;
+}
+
+.title {
+    line-height: 0.95;
+    font-weight: bold;
+    text-align: left;
+}
+
+.title-fit {
     line-height: 0.95;
     font-weight: bold;
     text-align: center;
 }
 
 .card:hover {
-    scale: 1.1;
-    backdrop-filter: blur(0.5rem);
+    scale: 1.05;
     z-index: 10;
 }
 
-/* Flip animation states */
 .flip-x {
     transform: rotateX(180deg);
 }
@@ -119,6 +159,77 @@ span.fit {
 .big {
     grid-column: span 2;
     grid-row: span 2;
+    border-radius: 10% !important;
+}
+
+.big p {
+    margin: 0 !important;
+}
+
+.curtain {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    backdrop-filter: blur(0);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    z-index: 999;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease, backdrop-filter 0.4s ease;
+}
+
+.curtain.active {
+    opacity: 1;
+    pointer-events: all;
+    backdrop-filter: blur(0.75rem);
+}
+
+.content {
+    max-width: 32rem;
+    margin: 2rem auto 1rem auto;
+    transform: translateY(100%);
+    transition: transform 0.5s ease;
+}
+
+.curtain.active .content {
+    transform: translateY(0);
+}
+
+.content p {
+    color: white !important;
+}
+
+.content .content-button {
+    display: block;
+    margin-bottom: 1rem;
+    background: transparent;
+    border: 0.1rem solid white;
+    border-radius: 0.5rem;
+    color: white;
+    text-align: center;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.content a {
+    text-decoration: none;
+}
+
+.content .content-button:hover {
+    opacity: 0.5;
+}
+
+.content .content-button:active {
+    opacity: 0.25;
 }
 
 /* Responsive breakpoints */
@@ -148,41 +259,26 @@ p {
 }
 
 h1 {
-    font-size: 6rem;
-    text-align: center;
-    font-weight: normal;
+    font-size: 2rem;
+    text-align: right;
+    font-weight: bold;
+    margin-bottom: 1rem;
 }
 
 h2 {
     font-size: 1.5rem;
-    text-align: center;
-    font-weight: normal;
+    text-align: right;
+    font-weight: bold;
 }
 
 h3 {
     font-size: 1rem;
-    text-align: center;
-    font-weight: normal;
-}
-
-a {
-    text-decoration: none;
-    color: var(--text) !important;
-    text-shadow: 0 0 0.25rem var(--shadow);
-    font-size: 1rem !important;
-    transition: transform 0.005s ease, text-shadow 0.005s ease;
+    text-align: right;
+    font-weight: bold;
 }
 
 a:visited {
-    color: var(--text-dark);
-}
-
-a:active {
-    transform: scale(0.95) !important;
-}
-
-a:hover {
-    transform: scale(1.10);
+    color: var(--text);
 }
 
 .text-link {
@@ -230,4 +326,20 @@ a:hover {
 
 label, .text-link, input, p, .alert, textarea {
     font-size: 0.75rem !important;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    position: relative;
+    padding-left: 1rem;
+}
+
+li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    top: 0;
 }

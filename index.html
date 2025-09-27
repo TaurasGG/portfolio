@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Tauras Giedraitis</title>
     <link rel="stylesheet" href="./style.css">
+    <script src="./js/show-curtain.js" defer></script>
+    <script src="./js/flip-wrapper.js" defer></script>
+    <script src="js/title-fit.js" defer></script>
+    <script src="js/card-text.js" defer></script>
+    <script src="./js/card-flip.js" defer></script>
     <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
@@ -13,133 +18,155 @@
 <body>
 <div class="grid">
     <div class="card big">
-        <span class="fit">TAURAS</span>
-        <span class="fit">GIEDRAITIS</span>
-        <span class="fit">Software Engineering Student at KTU</span>
+        <span class="title-fit">TAURAS</span>
+        <span class="title-fit">GIEDRAITIS</span>
+        <span class="title-fit">Software Engineering Student</span>
     </div>
     <div class="card flip"></div>
-    <div class="small">
-        <div class="card flip"></div>
-        <div class="card flip"></div>
-        <div class="card flip"></div>
-        <div class="card flip"></div>
+    <div class="grid-small">
+        <div class="card flip">
+            <div class="icon-wrapper">
+                <img class="icon" src="./assets/java-logo.svg" alt="Java Logo">
+            </div>
+        </div>
+        <div class="card flip">
+            <div class="icon-wrapper">
+                <img class="icon" src="./assets/cs-logo.svg" alt="C# Logo">
+            </div>
+        </div>
+        <div class="card flip">
+            <div class="icon-wrapper">
+                <img class="icon" src="./assets/cplusplus-logo.svg" alt="C++ Logo">
+            </div>
+        </div>
+        <div class="card flip">
+            <div class="icon-wrapper">
+                <img class="icon" src="./assets/python-logo.svg" alt="Python Logo">
+            </div>
+        </div>
+    </div>
+    <div id="show-resume" class="card flip button">
+        <div class="icon-wrapper">
+            <img class="icon" src="./assets/resume.svg" alt="Resume">
+        </div>
+        <span class="title">Resume</span>
+    </div>
+    <div id="show-contact" class="card flip button">
+        <div class="icon-wrapper">
+            <img class="icon" src="./assets/envelope.svg" alt="Envelope">
+        </div>
+        <span class="title">Contact</span>
+    </div>
+    <div id="show-projects" class="card flip button">
+        <div class="icon-wrapper">
+            <img class="icon" src="./assets/projects.svg" alt="Projects">
+        </div>
+        <span class="title">Projects</span>
     </div>
     <div class="card flip"></div>
-    <div class="card flip"></div>
-    <div class="card flip"></div>
-    <div class="card flip"></div>
-    <div class="card big"></div>
-    <div class="card flip"></div>
-    <div class="small">
-        <div class="card flip"></div>
-        <div class="card flip"></div>
-        <div class="card flip"></div>
-        <div class="card flip"></div>
+    <div class="card big">
+        <span class="first">Hello,</span>
+        <span>
+            I’m Tauras - a full-stack software engineering student with a strong attention to detail and an artistic touch in my work. I’m based in Kaunas, Lithuania, and currently in my 4th year of studies at Kaunas University of Technology.
+        </span>
     </div>
-    <div class="card big"></div>
     <div class="card flip"></div>
+    <div class="grid-small">
+        <div class="card flip">
+            <div class="icon-wrapper">
+                <img class="icon" src="./assets/html5-logo.svg" alt="HTML 5 Logo">
+            </div>
+        </div>
+        <div class="card flip">
+            <div class="icon-wrapper">
+                <img class="icon" src="./assets/css3-logo.svg" alt="CSS 3 Logo">
+            </div>
+        </div>
+        <div class="card flip">
+            <div class="icon-wrapper">
+                <img class="icon" src="./assets/javascript-logo.svg" alt="JavaScript Logo">
+            </div>
+        </div>
+        <div class="card flip">
+            <div class="icon-wrapper">
+                <img class="icon" src="./assets/react-logo.svg" alt="React Logo">
+            </div>
+        </div>
+    </div>
+    <div class="card big">
+        <span class="first">Skills</span>
+        <ul>
+            <li>Programing - Java, C#, C++, Python and more</li>
+            <li>Web Development - HTML, CSS, JavaScript, React</li>
+            <li>Video Game Development - Unity, Blender (3D modeling)</li>
+            <li>Graphics & Video Editing - Adobe Illustrator, Adobe Premiere Pro</li>
+        </ul>
+    </div>
+    <a class="card flip button" href="https://www.linkedin.com/in/taurasg/" target="_blank">
+        <div class="icon-wrapper">
+            <img class="icon" src="./assets/linkedin-logo.svg" alt="LinkedIn Logo">
+        </div>
+        <span class="title">LinkedIn</span>
+    </a>
+    <a class="card flip button" href="https://github.com/TaurasGG" target="_blank">
+        <div class="icon-wrapper">
+            <img class="icon" src="./assets/github-logo.svg" alt="GitHub Logo">
+        </div>
+        <span class="title">GitHub</span>
+    </a>
+    <div class="grid-small">
+        <div class="card flip">
+            <div class="icon-wrapper">
+                <img class="icon" src="./assets/unity-logo.svg" alt="Unity Logo">
+            </div>
+        </div>
+        <div class="card flip">
+            <div class="icon-wrapper">
+                <img class="icon" src="./assets/blender-logo.svg" alt="Blender Logo">
+            </div>
+        </div>
+        <div class="card flip">
+            <div class="icon-wrapper">
+                <img class="icon" src="./assets/premiere-pro-logo.svg" alt="Adobe Premiere Pro Logo">
+            </div>
+        </div>
+        <div class="card flip">
+            <div class="icon-wrapper">
+                <img class="icon" src="./assets/illustrator-logo.svg" alt="Adobe Illustrator Logo">
+            </div>
+        </div>
+    </div>
     <div class="card flip"></div>
-    <div class="card flip"></div>
-    <div class="small">
-        <div class="card flip"></div>
-        <div class="card flip"></div>
-        <div class="card flip"></div>
-        <div class="card flip"></div>
+</div>
+<div id="resume" class="curtain">
+    <div class="content">
+        <button class="close content-button">✕ Close</button>
+        <h1>Resume</h1>
+        <p>
+            I’ll be adding the PDFs of my Resume shortly. Thanks for your patience!
+        </p>
+        <a class="content-button" href="./documents/resume.pdf" target="_blank">English Version ⤳</a>
+        <a class="content-button" href="./documents/reziumė.pdf" target="_blank">Lietuviška versija ⤳</a>
     </div>
 </div>
-<div id="curtain">
-
+<div id="contact" class="curtain">
+    <div class="content">
+        <button class="close content-button">✕ Close</button>
+        <h1>Contact</h1>
+        <p>
+            Please do not hesitate to contact me at the following email address:
+        </p>
+        <a class="content-button" href="mailto:contact@taurasg.com">contact@taurasg.com</a>
+    </div>
 </div>
-
-<script>
-    function fitTextToSpan() {
-        const spans = document.querySelectorAll('.fit');
-
-        spans.forEach(span => {
-            const spanWidth = span.parentElement.clientWidth * 0.8 + 1;
-            let fontSize = 10;
-
-            span.style.setProperty('font-size', fontSize + 'px', 'important');
-            span.style.whiteSpace = 'nowrap';
-
-            while (span.scrollWidth < spanWidth && fontSize < 300) {
-                fontSize++;
-                span.style.setProperty('font-size', fontSize + 'px', 'important');
-            }
-
-            if (span.scrollWidth > spanWidth) {
-                fontSize--;
-                span.style.setProperty('font-size', fontSize + 'px', 'important');
-            }
-        });
-    }
-
-    window.addEventListener('load', fitTextToSpan);
-    window.addEventListener('resize', fitTextToSpan);
-</script>
-
-<script>
-    const cards = document.querySelectorAll('.flip');
-
-    function randomFlip() {
-        const available = Array.from(cards).filter(
-            t => !t.matches(':hover') // don’t flip hovered ones
-        );
-
-        if (available.length === 0) return;
-
-        const chosen = [];
-        for (let i = 0; i < 1 && available.length > 0; i++) {
-            const idx = Math.floor(Math.random() * available.length);
-            chosen.push(available.splice(idx, 1)[0]);
-        }
-
-        chosen.forEach(card => {
-            const dir = Math.random() > 0.5 ? 'flip-x' : 'flip-y';
-            card.classList.add(dir);
-            setTimeout(() => card.classList.remove(dir), 600);
-        });
-    }
-
-    // Run every 0.5 seconds
-    setInterval(randomFlip, 500);
-
-    function updateCardStyles() {
-        const cards = document.querySelectorAll(".card");
-        if (cards.length < 1) return;
-
-        const firstCard = cards[0];
-        const width = firstCard.getBoundingClientRect().width; // exact pixel width
-        const size = width * 0.10; // 10% of width
-
-        const padding = `${size}px`;
-        const borderRadius = `${size}px`;
-
-        // Apply padding and border-radius to all other cards
-        cards.forEach((card, index) => {
-            if (index === 0) return; // skip first card for padding/border-radius
-            card.style.setProperty("padding", padding, "important");
-            card.style.setProperty("border-radius", borderRadius, "important");
-        });
-
-        // Apply blur backdrop to all cards including the first
-        cards.forEach(card => {
-            card.style.setProperty("backdrop-filter", "blur(0.25rem)", "important");
-        });
-    }
-
-    // Run on page load
-    window.addEventListener("load", updateCardStyles);
-
-    // Update on window resize
-    window.addEventListener("resize", updateCardStyles);
-
-    // Observe the first card for dynamic resizing
-    const firstCard = document.querySelector(".card");
-    if (firstCard) {
-        const observer = new ResizeObserver(updateCardStyles);
-        observer.observe(firstCard);
-    }
-</script>
+<div id="projects" class="curtain">
+    <div class="content">
+        <button class="close content-button">✕ Close</button>
+        <h1>Projects</h1>
+        <p>
+            I’ll be listing my projects shortly. Thanks for your patience!
+        </p>
+    </div>
+</div>
 </body>
 </html>
