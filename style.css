@@ -346,7 +346,7 @@ h1 {
 }
 
 h2 {
-    font-size: 1rem;
+    font-size: 1.25rem;
     text-align: right;
     font-weight: bold;
     margin-bottom: 1rem;
@@ -401,6 +401,11 @@ a:visited {
     font-weight: bold;
 }
 
+.content-bold {
+    font-weight: bold;
+    color: white;
+}
+
 .underline {
     text-decoration: underline !important;
 }
@@ -415,6 +420,22 @@ label, .text-link, input, p, .alert, textarea {
 
 ul {
     list-style: none;
+}
+
+.content-list {
+    font-size: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.content-list li{
+    color: white;
+}
+
+.content-image {
+    width: 100%;
+    margin-bottom: 1rem;
+    border: 0.1rem solid white;
+    border-radius: 1rem;
 }
 
 li {
