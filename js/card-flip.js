@@ -1,17 +1,37 @@
-const cards = document.querySelectorAll('.flip');
+document.addEventListener("DOMContentLoaded", () => {
+    let flipCards = document.querySelectorAll(".card.flip");
 
-function randomFlip() {
-    const available = Array.from(cards).filter(
-        t => !t.matches(':hover')
-    );
+    // Detect Gecko (Firefox engine)
+    const isGecko = navigator.userAgent.toLowerCase().includes("gecko") &&
+        !navigator.userAgent.toLowerCase().includes("webkit") &&
+        !navigator.userAgent.toLowerCase().includes("trident");
 
-    if (available.length === 0) return;
+    // Only wrap if NOT Firefox/Gecko
+    if (!isGecko) {
+        flipCards.forEach(card => {
+            const wrapper = document.createElement("div");
+            wrapper.classList.add("flip-wrapper");
+            card.parentNode.insertBefore(wrapper, card);
+            wrapper.appendChild(card);
+        });
 
-    const card = available[Math.floor(Math.random() * available.length)];
-    const dir = Math.random() > 0.5 ? 'flip-x' : 'flip-y';
+        // refresh NodeList since cards are re-parented
+        flipCards = document.querySelectorAll(".card.flip");
+    }
 
-    card.classList.add(dir);
-    setTimeout(() => card.classList.remove(dir), 600);
-}
+    function randomFlip() {
+        const available = Array.from(flipCards).filter(
+            t => !t.matches(':hover')
+        );
 
-setInterval(randomFlip, 500);
+        if (available.length === 0) return;
+
+        const card = available[Math.floor(Math.random() * available.length)];
+        const dir = Math.random() > 0.5 ? 'flip-x' : 'flip-y';
+
+        card.classList.add(dir);
+        setTimeout(() => card.classList.remove(dir), 600);
+    }
+
+    setInterval(randomFlip, 500);
+});

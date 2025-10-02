@@ -13,10 +13,17 @@ function resizeCardFonts() {
         const otherTexts = card.querySelectorAll('*:not(.title):not(.title-fit)');
         otherTexts.forEach(el => {
             if (el.nodeType === 1) { // element nodes only
-                // If the element has class "skills", use 0.75 instead of 0.045
                 const factor = el.classList.contains('first') ? 0.065 : 0.035;
                 el.style.fontSize = (width * factor) + 'px';
             }
+        });
+
+        // Scale icon shadows dynamically
+        const icons = card.querySelectorAll('.icon');
+        icons.forEach(icon => {
+            const size = Math.max(icon.getBoundingClientRect().width, icon.getBoundingClientRect().height);
+            const blur = size / 3; // two third of icon size
+            icon.style.filter = `drop-shadow(0 0 ${blur}px var(--shadow))`;
         });
     });
 }

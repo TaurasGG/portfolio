@@ -57,6 +57,23 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+    // --------- ERROR CURTAIN LOGIC ---------
+    const urlParams = new URLSearchParams(window.location.search);
+    const showError = urlParams.get("error"); // e.g., ?error=404
+    if (showError) {
+        const errorCurtain = document.getElementById("error");
+        if (errorCurtain) {
+            // Optionally customize the message
+            const errorMessage = document.getElementById("error-message");
+            if (errorMessage) {
+                errorMessage.textContent = `Error ${showError}`;
+            }
+            // Show error curtain without saving to localStorage
+            showCurtain(errorCurtain, false);
+        }
+    }
+
+    // --------- SHOW / HIDE FUNCTIONS ---------
     function showCurtain(curtain, save = true) {
         curtain.hidden = false;
         requestAnimationFrame(() => {

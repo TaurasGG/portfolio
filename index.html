@@ -6,10 +6,10 @@
     <title>Tauras Giedraitis</title>
     <link rel="stylesheet" href="./style.css">
     <script src="./js/show-curtain.js" defer></script>
-    <script src="./js/flip-wrapper.js" defer></script>
     <script src="js/title-fit.js" defer></script>
-    <script src="js/card-text.js" defer></script>
+    <script src="js/card-styles.js" defer></script>
     <script src="./js/card-flip.js" defer></script>
+    <script src="./js/scroll-in.js" defer></script>
     <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
@@ -143,7 +143,7 @@
         <button class="close content-button">✕ Close</button>
         <h1>Resume</h1>
         <p>
-            I’ll be adding the PDFs of my Resume shortly. Thanks for your patience!
+            You may review my resume by choosing one of the versions below:
         </p>
         <a class="content-button" href="./documents/resume.pdf" target="_blank">English Version ⤳</a>
         <a class="content-button" href="./documents/reziumė.pdf" target="_blank">Lietuviška versija ⤳</a>
@@ -163,8 +163,34 @@
     <div class="content">
         <button class="close content-button">✕ Close</button>
         <h1>Projects</h1>
+        <h2>MindQuest</h2>
         <p>
-            I’ll be listing my projects shortly. Thanks for your patience!
+            MindQuest is a daily wellness check platform where users take self-assessment tests, view insights,
+            and read the MindFeed with health-related posts. Developed as a university team project using Java, Spring Boot, MySQL, Thymeleaf, CSS, JS, and HTML,
+            I was responsible for front-end and back-end integration, implementing forms and the MindFeed system, and contributing to project design.
+        </p>
+        <a class="content-button"  href="https://github.com/GerbalMarius/Placeholders" target="_blank">View Project's Repository ⤳</a>
+        <h2>SolarHop</h2>
+        <p>
+            SolarHop is a mobile Android game that teaches 5th–8th graders physics by exploring the solar system as an alien, unlocking planets with NFC cards,
+            and completing physics-based challenges. Created as a university team project with Unity, Blender, and C#,
+            I contributed by modeling most 3D assets, designing gameplay mechanics, programming level logic, and setting up interactive scenes.
+        </p>
+        <a class="content-button"  href="https://github.com/GytisPra/Project-Solaris" target="_blank">View Project's Repository ⤳</a>
+        <h2>"Klinika Giedra" Website</h2>
+        <p>
+            An informative website for a family clinic with an admin login to manage news posts and site content. The current one-page version is live, while an improved version is in development.
+            Built with Java, Spring Boot, React, and MongoDB, I handled full-stack development, including admin features, content management, and site structure.
+        </p>
+        <a class="content-button"  href="https://klinikagiedra.lt/" target="_blank">View Project ⤳</a>
+    </div>
+</div>
+<div id="error" class="curtain">
+    <div class="content">
+        <button class="close content-button">✕ Close</button>
+        <h1 id="error-message"></h1>
+        <p>
+            Something went wrong while loading the page. You can continue using the site as usual.
         </p>
     </div>
 </div>

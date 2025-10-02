@@ -24,7 +24,7 @@ input::-webkit-inner-spin-button {
     --text-dark: rgba(0, 100, 100, 0.75);
     --box: rgba(255, 255, 255, 0);
     --button: rgba(255, 255, 255, 0.5);
-    --shadow: rgba(0, 100, 100, 0.75);
+    --shadow: rgba(0, 100, 100, 1);
     --shadow-dark: rgba(255, 255, 255, 0.5);
     --important: #0e83b5;
     --danger: hwb(0 25% 0%);
@@ -49,7 +49,8 @@ html {
     font-weight: normal;
     line-height: 1;
     color: var(--text);
-    text-shadow: 0 0 0.75rem var(--shadow);
+    --blur: calc(1em / 3 * 2);
+    text-shadow: 0 0 var(--blur) var(--shadow);
 }
 
 /*
@@ -57,12 +58,15 @@ Page
  */
 
 body {
-    overflow-x: hidden;
     background-image: url("./assets/background.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
-    padding: 0.3rem;
+    overflow: hidden;
+}
+
+body.ready {
+    overflow: auto;
 }
 
 .grid {
@@ -70,7 +74,9 @@ body {
     grid-template-columns: repeat(6, 1fr);
     width: 100%;
     transition: filter 0.3s ease;
-    gap: 0.3rem;
+    gap: 0.5vw;
+    overflow: hidden;
+    padding: 0.5vw;
 }
 
 .grid-small {
@@ -78,23 +84,27 @@ body {
     grid-template-columns: repeat(2, 1fr);
     width: 100%;
     transition: filter 0.3s ease;
-    gap: 0.3rem;
+    gap: 0.5vw;
 }
 
 .grid-small .card {
-    border-radius: calc((400% + 0.9rem) * 0.1);
+    border-radius: calc((400% + 1.5vw) * 0.1);
+}
+
+.grid-small .card:hover {
+    scale: 1.12 !important;
 }
 
 .card {
     aspect-ratio: 1 / 1;
     padding: 10%;
-    border-radius: calc((200% + 0.3rem) * 0.1);
+    border-radius: calc((200% + 0.5vw) * 0.1);
     border: 0.1rem solid rgba(255, 255, 255, 0.1);
     display: flex;
     flex-direction: column;
     align-items: stretch;
     justify-content: end;
-    transition: transform 2s ease, scale 0.5s ease;
+    transition: transform 2s ease, scale 0.3s ease;
     position: relative;
     box-shadow: inset 0 0 0.5rem 0 rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(0.25rem) !important;
@@ -114,7 +124,6 @@ body {
     max-height: 40%;
     max-width: 40%;
     opacity: 0.75;
-    filter: drop-shadow(0 0 0.75rem var(--shadow));
 }
 
 .icon-wrapper {
@@ -145,7 +154,7 @@ body {
 }
 
 .card:hover {
-    scale: 1.05;
+    scale: 1.06;
     z-index: 10;
 }
 
@@ -162,6 +171,10 @@ body {
     border-radius: 10% !important;
 }
 
+.big:hover {
+    scale: 1.03 !important;
+}
+
 .big p {
     margin: 0 !important;
 }
@@ -176,8 +189,6 @@ body {
     justify-content: center;
     align-items: flex-start;
     z-index: 999;
-    padding-left: 1rem;
-    padding-right: 1rem;
     overflow-y: auto;
     overscroll-behavior: contain;
     opacity: 0;
@@ -194,8 +205,11 @@ body {
 .content {
     max-width: 32rem;
     margin: 2rem auto 1rem auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
     transform: translateY(100%);
     transition: transform 0.5s ease;
+    overflow: hidden;
 }
 
 .curtain.active .content {
@@ -218,6 +232,7 @@ body {
     padding: 0.5rem 1rem;
     cursor: pointer;
     transition: opacity 0.5s ease-in-out;
+    overflow-wrap: break-word;
 }
 
 .content a {
@@ -237,15 +252,77 @@ body {
     .grid {
         grid-template-columns: repeat(5, 1fr);
     }
+
+    body {
+        padding: calc(0.5vw * 7 / 6);
+    }
+
+    .grid {
+        gap: calc(0.5vw * 7 / 6);
+    }
+
+    .grid-small {
+        gap: calc(0.5vw * 7 / 6);
+    }
+
+    .grid-small .card {
+        border-radius: calc((400% + 1.5 * (0.5vw * 7 / 6)) * 0.1);
+    }
+
+    .card {
+        border-radius: calc((200% + (0.5vw * 7 / 6)) * 0.1);
+    }
 }
+
 @media (max-width: 900px) {
     .grid {
         grid-template-columns: repeat(4, 1fr);
     }
+
+    body {
+        padding: calc(0.5vw * 7 / 5);
+    }
+
+    .grid {
+        gap: calc(0.5vw * 7 / 5);
+    }
+
+    .grid-small {
+        gap: calc(0.5vw * 7 / 5);
+    }
+
+    .grid-small .card {
+        border-radius: calc((400% + 1.5 * (0.5vw * 7 / 5)) * 0.1);
+    }
+
+    .card {
+        border-radius: calc((200% + (0.5vw * 7 / 5)) * 0.1);
+    }
 }
+
 @media (max-width: 600px) {
     .grid {
         grid-template-columns: repeat(3, 1fr);
+    }
+
+    body {
+        padding: calc(0.5vw * 7 / 4);
+    }
+
+    .grid {
+        gap: calc(0.5vw * 7 / 4);
+    }
+
+    .grid-small {
+        gap: calc(0.5vw * 7 / 4);
+    }
+
+    .grid-small .card {
+        border-radius: calc((400% + 1.5 * (0.5vw * 7 / 4)) * 0.1);
+    }
+
+    .card {
+        border-radius: calc((200% + (0.5vw * 7 / 4)) * 0.1);
     }
 }
 
@@ -256,6 +333,7 @@ Text
 p {
     margin-bottom: 1rem;
     text-align: justify;
+    color: white;
 }
 
 h1 {
@@ -263,18 +341,25 @@ h1 {
     text-align: right;
     font-weight: bold;
     margin-bottom: 1rem;
+    color: white;
+    overflow-wrap: break-word;
 }
 
 h2 {
-    font-size: 1.5rem;
+    font-size: 1rem;
     text-align: right;
     font-weight: bold;
+    margin-bottom: 1rem;
+    color: white;
+    overflow-wrap: break-word;
 }
 
 h3 {
     font-size: 1rem;
     text-align: right;
     font-weight: bold;
+    color: white;
+    overflow-wrap: break-word;
 }
 
 a:visited {
